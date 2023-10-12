@@ -23,6 +23,8 @@ public:
     ~HttpRequest();
 
     ParseRequestState ParseRequest(std::string request);
+    ParseRequestState ParseRequest1(std::string request);
+    
 
     void toString()
     {

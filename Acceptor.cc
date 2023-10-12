@@ -7,10 +7,11 @@
 #include <cstring>
 #include <memory>
 
-Acceptor::Acceptor(std::shared_ptr<EventLoop> event_loop_ptr, const sockaddr_in addr)
+Acceptor::Acceptor(std::shared_ptr<EventLoop> event_loop_ptr, const sockaddr_in server_addr)
     : event_loop_ptr_(event_loop_ptr),
+      server_addr_(server_addr),
       acceptfd_(::socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP)),
-      accept_channel_ptr_(new Channel(event_loop_ptr, acceptfd_)),
+      accept_channel_ptr_(new Channel(acceptfd_)),
       listen_flag_(false),
       idlefd_(::open("/dev/null", O_RDONLY | O_CLOEXEC))
 {
@@ -18,6 +19,11 @@ Acceptor::Acceptor(std::shared_ptr<EventLoop> event_loop_ptr, const sockaddr_in 
     {
         // handle error
     }
+    if (idlefd_ < 0)
+    {
+        // handle error
+    }
+
     int optval = 1;
     if (::setsockopt(acceptfd_, SOL_SOCKET, SO_REUSEADDR, &optval, static_cast<socklen_t>(sizeof(optval))) < 0)
     {
@@ -27,18 +33,22 @@ Acceptor::Acceptor(std::shared_ptr<EventLoop> event_loop_ptr, const sockaddr_in 
     {
         // handle error
     }
-    if (::bind(acceptfd_, (struct sockaddr*)&addr, static_cast<socklen_t>(sizeof(addr))) < 0)
-    {
-        // handle error
-    }
 
     accept_channel_ptr_->set_read_call_back_(std::bind(&Acceptor::HandleReadEvent, this));
 }
 
 Acceptor::~Acceptor()
 {
-    accept_channel_ptr_->Remove();
+    event_loop_ptr_->RemoveChannel(accept_channel_ptr_);
     ::close(idlefd_);
+}
+
+void Acceptor::Bind()
+{
+    if (::bind(acceptfd_, (struct sockaddr*)&server_addr_, static_cast<socklen_t>(sizeof(server_addr_))) < 0)
+    {
+        // handle error
+    }
 }
 
 void Acceptor::Listen()
@@ -47,7 +57,7 @@ void Acceptor::Listen()
     {
         // handle error
     }
-    accept_channel_ptr_->Add();
+    accept_channel_ptr_->EnableReading();
     listen_flag_ = true;
 }
 

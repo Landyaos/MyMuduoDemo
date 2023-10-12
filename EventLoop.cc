@@ -38,20 +38,24 @@ void EventLoop::Init()
     else
         kEventLoopTLS = shared_from_this();
 
-    timer_queue_ptr_.reset(new TimerQueue());
-    timer_channel_.reset(new Channel(shared_from_this(), timer_fd_));
+    timer_queue_ptr_.reset(new TimerSchedule());
+    timer_channel_.reset(new Channel(timer_fd_));
     timer_channel_->set_read_call_back_(std::bind(&EventLoop::HandleTimerEvent, this));
-    timer_channel_->Add();
+    timer_channel_->EnableReading();
+    AddChannel(timer_channel_);
 
-    wakeup_channel_.reset(new Channel(shared_from_this(), wakeup_fd_));
+    wakeup_channel_.reset(new Channel(wakeup_fd_));
     wakeup_channel_->set_read_call_back_(std::bind(&EventLoop::HandleWakeUpEvent, this));
-    wakeup_channel_->Add();
+    wakeup_channel_->EnableReading();
+    AddChannel(wakeup_channel_);
 }
 
 EventLoop::~EventLoop()
 {
-    wakeup_channel_->Remove();
+    RemoveChannel(timer_channel_);
+    RemoveChannel(wakeup_channel_);
     ::close(wakeup_fd_);
+    ::close(timer_fd_);
     kEventLoopTLS = nullptr;
 }
 
@@ -69,6 +73,7 @@ void EventLoop::Loop()
         {
             channel->HandleEvent(time);
         }
+        std::cout << "执行" << thread_id_ << " " << std::this_thread::get_id() << std::endl;
         event_handling_flag_ = false;
         DoPendingFunctors();
     }
@@ -111,9 +116,18 @@ void EventLoop::QueueInLoop(std::function<void()> cb)
 void EventLoop::RunAt(Timestamp time, std::function<void()> cb)
 {
     // 获取过期timer
-
-    //
-
+    std::cout << "add a new timer -------------------------" << std::endl;
+    std::shared_ptr<Timer> timer_ptr(new Timer(cb, time));
+    timer_queue_ptr_->AddTimer(timer_ptr);
+    struct itimerspec expiration;
+    expiration.it_value.tv_sec = 5;  // 初始超时时间为 5 秒
+    expiration.it_value.tv_nsec = 0;
+    expiration.it_interval.tv_sec = 0;  // 重复间隔为 2 秒
+    expiration.it_interval.tv_nsec = 0;
+    if (::timerfd_settime(timer_fd_, 0, &expiration, NULL) == -1)
+    {
+        perror("timerfd_settime");
+    }
 }
 
 void EventLoop::Wakeup()
@@ -123,10 +137,12 @@ void EventLoop::Wakeup()
     {
         // wake up failed
     }
+    std::cout << "wake up fd " << wakeup_fd_ << std::endl;
 }
 
 void EventLoop::AddChannel(std::shared_ptr<Channel> channel_ptr)
 {
+    channel_ptr->set_run_in_loop_flag(true);
     poller_ptr_->AddChannel(channel_ptr);
 }
 
@@ -137,6 +153,7 @@ void EventLoop::UpdateChannel(std::shared_ptr<Channel> channel_ptr)
 
 void EventLoop::RemoveChannel(std::shared_ptr<Channel> channel_ptr)
 {
+    channel_ptr->set_run_in_loop_flag(false);
     poller_ptr_->RemoveChannel(channel_ptr);
 }
 
@@ -153,9 +170,10 @@ void EventLoop::HandleWakeUpEvent()
 
 void EventLoop::HandleTimerEvent()
 {
-    timer_queue_ptr_->Acquire();
+    std::cout << "time happeen----------" << std::endl;
+    uint64_t flag = 1;
+    ::read(timer_fd_, &flag, sizeof(flag));
     timer_queue_ptr_->HandleTimerQueue();
-
 }
 
 void EventLoop::DoPendingFunctors()

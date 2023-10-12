@@ -25,7 +25,7 @@ void HttpServer::HandleConnection(std::shared_ptr<TcpConnection> conn)
 {
     std::cout << "EchoServer - Connection" << std::endl;
     // std::string res = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nAccess-Control-Allow-Origin: *\r\n\r\n";
-    // conn->Send(res);
+    // conn->SendInLoop(res);
 }
 
 void HttpServer::HandleMessage(std::shared_ptr<TcpConnection> conn, std::string message, Timestamp time)
@@ -36,5 +36,5 @@ void HttpServer::HandleMessage(std::shared_ptr<TcpConnection> conn, std::string 
     // std::string res = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nAccess-Control-Allow-Origin: *\r\n\r\n";
     // // http_request.toString();
     // http_response.set(res);
-    conn->Send(message);
+    conn->SendInLoop(message);
 }

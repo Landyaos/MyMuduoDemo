@@ -28,5 +28,5 @@ void Echo::HandleMessage(std::shared_ptr<TcpConnection> conn, std::string messag
     std::cout << "EchoServer - Receive : " << message << std::endl;
 
     
-    conn->Send(message);
+    conn->SendInLoop(message);
 }

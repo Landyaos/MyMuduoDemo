@@ -6,6 +6,6 @@ Timestamp::Timestamp()
 }
 
 Timestamp::Timestamp(long long duration)
-    : time_point_(std::chrono::high_resolution_clock::now() + std::chrono::seconds(duration))
+    : time_point_(std::chrono::high_resolution_clock::now() + std::chrono::microseconds(duration))
 {
 }

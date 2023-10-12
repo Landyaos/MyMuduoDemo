@@ -1,6 +1,5 @@
 #include "Timer.h"
 
-
 Timer::Timer(std::function<void()> callback, Timestamp expiration, long long duration, int repeat_num)
     : callback_(callback),
       expiration_(expiration),
@@ -14,4 +13,12 @@ Timer::Timer(std::function<void()> callback, Timestamp expiration)
       duration_(0),
       repeat_num_(0)
 {
+}
+
+void Timer::HandleEvent()
+{
+    if (callback_)
+    {
+        callback_();
+    }
 }

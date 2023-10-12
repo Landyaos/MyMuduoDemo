@@ -5,19 +5,17 @@
 #include <thread>
 
 #include "Echo.h"
-#include "HttpServer.h"
 #include "EventLoop.h"
+#include "HttpServer.h"
 #include "Logger.h"
 
 void LogFunc()
 {
     for (int i = 0; i < 10000; i++)
     {
-        LOG_INFO << "hello";
         LOG_DEBUG << 1;
         LOG_FATAL << 2.5555555;
         LOG_TRACE << "12345";
-    
     }
 }
 

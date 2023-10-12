@@ -46,6 +46,7 @@ std::shared_ptr<EventLoop> EventLoopThreadPool::NextLoop()
 {
     assert(start_flag_);
     auto loop = base_loop_;
+    std::cout << " pool size " << loops_pool_.size() << " get " << next_ << std::endl;
     if (!loops_pool_.empty())
     {
         loop = loops_pool_[next_];

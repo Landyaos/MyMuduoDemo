@@ -1,4 +1,9 @@
 {
+    "C_Cpp.default.includePath": [
+        "/usr/lcoal/include",
+        "/usr/include",
+        "${workspaceFolder}/**"
+    ],
     "files.associations": {
         "array": "cpp",
         "atomic": "cpp",
@@ -56,7 +61,10 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "iomanip": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "fstream": "cpp",
+        "cinttypes": "cpp",
+        "unordered_set": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
 }

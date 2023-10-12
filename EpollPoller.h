@@ -16,6 +16,8 @@ public:
     void UpdateChannel(std::shared_ptr<Channel> channel_ptr) override;
     void RemoveChannel(std::shared_ptr<Channel> channel_ptr) override;
 
+    int epollfd() { return epollfd_; }
+
 private:
     void Update(int opreration, std::shared_ptr<Channel> channel_ptr);
 

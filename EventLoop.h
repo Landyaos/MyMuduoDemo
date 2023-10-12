@@ -9,7 +9,7 @@
 
 #include "Channel.h"
 #include "EpollPoller.h"
-#include "TimerQueue.h"
+#include "TimerSchedule.h"
 #include "Timestamp.h"
 #include "noncopyable.h"
 
@@ -40,6 +40,8 @@ public:
     bool isEventHandling() const { return event_handling_flag_; }
     bool isLoopThread() const { return thread_id_ == std::this_thread::get_id(); }
 
+    int epollfd(){return poller_ptr_->epollfd();}
+
 private:
     void HandleWakeUpEvent();
     void HandleTimerEvent();
@@ -58,7 +60,7 @@ private:
 
     int timer_fd_;
     std::shared_ptr<Channel> timer_channel_;
-    std::unique_ptr<TimerQueue> timer_queue_ptr_;
+    std::unique_ptr<TimerSchedule> timer_queue_ptr_;
 
     std::vector<Channel*> active_channel_list_;
 

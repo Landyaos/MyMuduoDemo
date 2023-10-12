@@ -14,6 +14,12 @@ public:
     ~Timer() = default;
     Timestamp expiration() const { return expiration_; }
     void set_expiration(Timestamp expiration) { expiration_ = expiration; }
+    void HandleEvent();
+
+    bool operator<(const Timer& ohter) const { return expiration_ < ohter.expiration(); }
+    bool operator<=(const Timer& ohter) const { return expiration_ <= ohter.expiration(); }
+    bool operator>(const Timer& other) const { return expiration_ > other.expiration(); }
+    bool operator>=(const Timer& other) const { return expiration_ >= other.expiration(); }
 
 private:
     Timestamp expiration_;

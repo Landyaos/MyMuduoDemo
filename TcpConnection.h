@@ -29,8 +29,8 @@ public:
     bool isConnected() const { return state_ == kConnected; }
     bool isDisconnected() const { return state_ == kDisconnected; }
 
-    void Send(std::string message);
-    // void Send(Buffer&& message);
+    void SendInLoop(std::string message);
+    // void SendInLoop(Buffer&& message);
 
     void Shutdown();
     void Close();
@@ -81,12 +81,12 @@ private:
     void HandleClose();
     void HandleError();
 
-    // void SendInLoop(Buffer&& message);
-    void SendInLoop(std::string message);
+    void HandleTimeout(std::weak_ptr<TcpConnection> myself);
+
+    void Send(std::string message);
     void ShutdownInLoop();
 
-    void ForceCloseInLoop();
-    void set_state_(ConnectionState state) { state_ = state; }
+    void set_state(ConnectionState state) { state_ = state; }
 
     void StartReadInLoop();
     void StopReadInLoop();
@@ -97,7 +97,7 @@ private:
     bool read_flag_;
 
     std::shared_ptr<Socket> socket_;
-    std::shared_ptr<Channel> channel_;
+    std::shared_ptr<Channel> tcp_connection_channel_;
 
     const sockaddr_in local_addr_;
     const sockaddr_in client_addr_;

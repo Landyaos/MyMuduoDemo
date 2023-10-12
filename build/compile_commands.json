@@ -1,0 +1,112 @@
+[
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Acceptor.cc.o -c /root/demo/Acceptor.cc",
+  "file": "/root/demo/Acceptor.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/AsyncLogging.cc.o -c /root/demo/AsyncLogging.cc",
+  "file": "/root/demo/AsyncLogging.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Buffer.cc.o -c /root/demo/Buffer.cc",
+  "file": "/root/demo/Buffer.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Channel.cc.o -c /root/demo/Channel.cc",
+  "file": "/root/demo/Channel.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Echo.cc.o -c /root/demo/Echo.cc",
+  "file": "/root/demo/Echo.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/EpollPoller.cc.o -c /root/demo/EpollPoller.cc",
+  "file": "/root/demo/EpollPoller.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/EventLoop.cc.o -c /root/demo/EventLoop.cc",
+  "file": "/root/demo/EventLoop.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/EventLoopThreadPool.cc.o -c /root/demo/EventLoopThreadPool.cc",
+  "file": "/root/demo/EventLoopThreadPool.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/HttpRequest.cc.o -c /root/demo/HttpRequest.cc",
+  "file": "/root/demo/HttpRequest.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/HttpResponse.cc.o -c /root/demo/HttpResponse.cc",
+  "file": "/root/demo/HttpResponse.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/HttpServer.cc.o -c /root/demo/HttpServer.cc",
+  "file": "/root/demo/HttpServer.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/LogFile.cc.o -c /root/demo/LogFile.cc",
+  "file": "/root/demo/LogFile.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/LogStream.cc.o -c /root/demo/LogStream.cc",
+  "file": "/root/demo/LogStream.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Logger.cc.o -c /root/demo/Logger.cc",
+  "file": "/root/demo/Logger.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Poller.cc.o -c /root/demo/Poller.cc",
+  "file": "/root/demo/Poller.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Socket.cc.o -c /root/demo/Socket.cc",
+  "file": "/root/demo/Socket.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/TcpConnection.cc.o -c /root/demo/TcpConnection.cc",
+  "file": "/root/demo/TcpConnection.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/TcpServer.cc.o -c /root/demo/TcpServer.cc",
+  "file": "/root/demo/TcpServer.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Timer.cc.o -c /root/demo/Timer.cc",
+  "file": "/root/demo/Timer.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/TimerSchedule.cc.o -c /root/demo/TimerSchedule.cc",
+  "file": "/root/demo/TimerSchedule.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Timestamp.cc.o -c /root/demo/Timestamp.cc",
+  "file": "/root/demo/Timestamp.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/main.cc.o -c /root/demo/main.cc",
+  "file": "/root/demo/main.cc"
+}
+]

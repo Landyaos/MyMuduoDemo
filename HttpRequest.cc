@@ -93,3 +93,19 @@ HttpRequest::ParseRequestState HttpRequest::ParseRequest(std::string request)
     }
     return state;
 }
+
+HttpRequest::ParseRequestState HttpRequest::ParseRequest1(std::string request)
+{
+    
+
+
+
+
+
+    
+
+
+
+
+    return ParseRequestState();
+}

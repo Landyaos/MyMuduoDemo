@@ -22,17 +22,17 @@ public:
     ~Imple() = default;
     void LogHeader()
     {
-        std::stringstream log_line;
-        log_line << " \n[" << level_ << "] ";
+        std::stringstream header;
+        header << " \n[" << level_ << "] ";
 
         auto now = std::chrono::high_resolution_clock::now();
         auto now_time_t = std::chrono::high_resolution_clock::to_time_t(std::chrono::high_resolution_clock::now());
         std::tm tm_struct = *std::localtime(&now_time_t);
-        log_line << std::put_time(&tm_struct, "%Y:%m:%d:%H:%M:%S");
+        header << std::put_time(&tm_struct, "%Y:%m:%d:%H:%M:%S");
         auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(now.time_since_epoch()).count();
-        log_line << "." << std::setw(6) << std::setfill('0') << (microseconds % 1000000);
-        log_line << "-" << file_name_ << "-" << line_ << " : ";
-        stream_ << log_line.str();
+        header << "." << std::setw(6) << std::setfill('0') << (microseconds % 1000000);
+        header << "-" << file_name_ << "-" << line_ << " : ";
+        stream_ << header.str();
     }
 
     LogStream stream_;
@@ -43,24 +43,27 @@ public:
 
 Logger::Logger(std::string file_name, int line) : imple_(new Imple(file_name, line, INFO))
 {
+    imple_->LogHeader();
 }
 
 Logger::Logger(std::string file_name, int line, LogLevel log_level) : imple_(new Imple(file_name, line, log_level))
 {
+    imple_->LogHeader();
 }
 
 Logger::Logger(std::string file_name, int line, LogLevel log_level, std::string func) : imple_(new Imple(file_name, line, log_level))
 {
+    imple_->LogHeader();
 }
 
 Logger::Logger(std::string file_name, int line, bool abort_flag) : imple_(new Imple(file_name, line, abort_flag ? FATAL : ERROR))
 {
+    imple_->LogHeader();
 }
 
 Logger::~Logger()
 {
     const FixedBuffer<kSmallBuffer> &buf(stream().buffer());
-    imple_->LogHeader();
     AsyncLogging::getInstance().Append(buf.Data(), buf.Length());
 }
 
