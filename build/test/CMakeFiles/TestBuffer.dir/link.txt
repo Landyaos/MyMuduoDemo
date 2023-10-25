@@ -1,0 +1,1 @@
+/usr/bin/g++  -pipe -std=c++11 -g -g -O0 CMakeFiles/TestBuffer.dir/buffer/TestBuffer.cc.o CMakeFiles/TestBuffer.dir/__/src/CircularBuffer.cc.o CMakeFiles/TestBuffer.dir/__/src/HttpRequest.cc.o -o ../../bin/TestBuffer 

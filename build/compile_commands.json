@@ -1,112 +1,132 @@
 [
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Acceptor.cc.o -c /root/demo/Acceptor.cc",
-  "file": "/root/demo/Acceptor.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Acceptor.cc.o -c /root/demo/src/Acceptor.cc",
+  "file": "/root/demo/src/Acceptor.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/AsyncLogging.cc.o -c /root/demo/AsyncLogging.cc",
-  "file": "/root/demo/AsyncLogging.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/AsyncLogging.cc.o -c /root/demo/src/AsyncLogging.cc",
+  "file": "/root/demo/src/AsyncLogging.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Buffer.cc.o -c /root/demo/Buffer.cc",
-  "file": "/root/demo/Buffer.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Buffer.cc.o -c /root/demo/src/Buffer.cc",
+  "file": "/root/demo/src/Buffer.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Channel.cc.o -c /root/demo/Channel.cc",
-  "file": "/root/demo/Channel.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Channel.cc.o -c /root/demo/src/Channel.cc",
+  "file": "/root/demo/src/Channel.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Echo.cc.o -c /root/demo/Echo.cc",
-  "file": "/root/demo/Echo.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/CircularBuffer.cc.o -c /root/demo/src/CircularBuffer.cc",
+  "file": "/root/demo/src/CircularBuffer.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/EpollPoller.cc.o -c /root/demo/EpollPoller.cc",
-  "file": "/root/demo/EpollPoller.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Echo.cc.o -c /root/demo/src/Echo.cc",
+  "file": "/root/demo/src/Echo.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/EventLoop.cc.o -c /root/demo/EventLoop.cc",
-  "file": "/root/demo/EventLoop.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/EpollPoller.cc.o -c /root/demo/src/EpollPoller.cc",
+  "file": "/root/demo/src/EpollPoller.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/EventLoopThreadPool.cc.o -c /root/demo/EventLoopThreadPool.cc",
-  "file": "/root/demo/EventLoopThreadPool.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/EventLoop.cc.o -c /root/demo/src/EventLoop.cc",
+  "file": "/root/demo/src/EventLoop.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/HttpRequest.cc.o -c /root/demo/HttpRequest.cc",
-  "file": "/root/demo/HttpRequest.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/EventLoopThreadPool.cc.o -c /root/demo/src/EventLoopThreadPool.cc",
+  "file": "/root/demo/src/EventLoopThreadPool.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/HttpResponse.cc.o -c /root/demo/HttpResponse.cc",
-  "file": "/root/demo/HttpResponse.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/HttpRequest.cc.o -c /root/demo/src/HttpRequest.cc",
+  "file": "/root/demo/src/HttpRequest.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/HttpServer.cc.o -c /root/demo/HttpServer.cc",
-  "file": "/root/demo/HttpServer.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/HttpResponse.cc.o -c /root/demo/src/HttpResponse.cc",
+  "file": "/root/demo/src/HttpResponse.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/LogFile.cc.o -c /root/demo/LogFile.cc",
-  "file": "/root/demo/LogFile.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/HttpServer.cc.o -c /root/demo/src/HttpServer.cc",
+  "file": "/root/demo/src/HttpServer.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/LogStream.cc.o -c /root/demo/LogStream.cc",
-  "file": "/root/demo/LogStream.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/LogFile.cc.o -c /root/demo/src/LogFile.cc",
+  "file": "/root/demo/src/LogFile.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Logger.cc.o -c /root/demo/Logger.cc",
-  "file": "/root/demo/Logger.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/LogStream.cc.o -c /root/demo/src/LogStream.cc",
+  "file": "/root/demo/src/LogStream.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Poller.cc.o -c /root/demo/Poller.cc",
-  "file": "/root/demo/Poller.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Logger.cc.o -c /root/demo/src/Logger.cc",
+  "file": "/root/demo/src/Logger.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Socket.cc.o -c /root/demo/Socket.cc",
-  "file": "/root/demo/Socket.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Poller.cc.o -c /root/demo/src/Poller.cc",
+  "file": "/root/demo/src/Poller.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/TcpConnection.cc.o -c /root/demo/TcpConnection.cc",
-  "file": "/root/demo/TcpConnection.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Socket.cc.o -c /root/demo/src/Socket.cc",
+  "file": "/root/demo/src/Socket.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/TcpServer.cc.o -c /root/demo/TcpServer.cc",
-  "file": "/root/demo/TcpServer.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/TcpConnection.cc.o -c /root/demo/src/TcpConnection.cc",
+  "file": "/root/demo/src/TcpConnection.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Timer.cc.o -c /root/demo/Timer.cc",
-  "file": "/root/demo/Timer.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/TcpServer.cc.o -c /root/demo/src/TcpServer.cc",
+  "file": "/root/demo/src/TcpServer.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/TimerSchedule.cc.o -c /root/demo/TimerSchedule.cc",
-  "file": "/root/demo/TimerSchedule.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Timer.cc.o -c /root/demo/src/Timer.cc",
+  "file": "/root/demo/src/Timer.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/Timestamp.cc.o -c /root/demo/Timestamp.cc",
-  "file": "/root/demo/Timestamp.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/TimerSchedule.cc.o -c /root/demo/src/TimerSchedule.cc",
+  "file": "/root/demo/src/TimerSchedule.cc"
 },
 {
   "directory": "/root/demo/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/webserver_cmake.dir/main.cc.o -c /root/demo/main.cc",
-  "file": "/root/demo/main.cc"
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/Timestamp.cc.o -c /root/demo/src/Timestamp.cc",
+  "file": "/root/demo/src/Timestamp.cc"
+},
+{
+  "directory": "/root/demo/build",
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/demo.dir/src/main.cc.o -c /root/demo/src/main.cc",
+  "file": "/root/demo/src/main.cc"
+},
+{
+  "directory": "/root/demo/build/test",
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/TestBuffer.dir/buffer/TestBuffer.cc.o -c /root/demo/test/buffer/TestBuffer.cc",
+  "file": "/root/demo/test/buffer/TestBuffer.cc"
+},
+{
+  "directory": "/root/demo/build/test",
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/TestBuffer.dir/__/src/CircularBuffer.cc.o -c /root/demo/src/CircularBuffer.cc",
+  "file": "/root/demo/src/CircularBuffer.cc"
+},
+{
+  "directory": "/root/demo/build/test",
+  "command": "/usr/bin/g++  -I/root/demo/include  -pipe -std=c++11 -g -g -O0 -std=gnu++11 -o CMakeFiles/TestBuffer.dir/__/src/HttpRequest.cc.o -c /root/demo/src/HttpRequest.cc",
+  "file": "/root/demo/src/HttpRequest.cc"
 }
 ]

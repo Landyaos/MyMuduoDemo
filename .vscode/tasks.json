@@ -8,6 +8,8 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "-I",
+                "${workspaceRoot}/include",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

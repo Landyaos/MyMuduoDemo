@@ -2,6 +2,7 @@
     "C_Cpp.default.includePath": [
         "/usr/lcoal/include",
         "/usr/include",
+        "${workspaceFolder}/include",
         "${workspaceFolder}/**"
     ],
     "files.associations": {

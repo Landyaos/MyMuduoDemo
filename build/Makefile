@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /root/demo/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -117,545 +127,582 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named webserver_cmake
+# Target rules for targets named demo
 
 # Build rule for target.
-webserver_cmake: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webserver_cmake
-.PHONY : webserver_cmake
+demo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 demo
+.PHONY : demo
 
 # fast build rule for target.
-webserver_cmake/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/build
-.PHONY : webserver_cmake/fast
+demo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
+.PHONY : demo/fast
 
-Acceptor.o: Acceptor.cc.o
-.PHONY : Acceptor.o
+#=============================================================================
+# Target rules for targets named TestBuffer
 
-# target to build an object file
-Acceptor.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Acceptor.cc.o
-.PHONY : Acceptor.cc.o
+# Build rule for target.
+TestBuffer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestBuffer
+.PHONY : TestBuffer
 
-Acceptor.i: Acceptor.cc.i
-.PHONY : Acceptor.i
+# fast build rule for target.
+TestBuffer/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestBuffer.dir/build.make test/CMakeFiles/TestBuffer.dir/build
+.PHONY : TestBuffer/fast
 
-# target to preprocess a source file
-Acceptor.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Acceptor.cc.i
-.PHONY : Acceptor.cc.i
-
-Acceptor.s: Acceptor.cc.s
-.PHONY : Acceptor.s
-
-# target to generate assembly for a file
-Acceptor.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Acceptor.cc.s
-.PHONY : Acceptor.cc.s
-
-AsyncLogging.o: AsyncLogging.cc.o
-.PHONY : AsyncLogging.o
+src/Acceptor.o: src/Acceptor.cc.o
+.PHONY : src/Acceptor.o
 
 # target to build an object file
-AsyncLogging.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/AsyncLogging.cc.o
-.PHONY : AsyncLogging.cc.o
+src/Acceptor.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Acceptor.cc.o
+.PHONY : src/Acceptor.cc.o
 
-AsyncLogging.i: AsyncLogging.cc.i
-.PHONY : AsyncLogging.i
+src/Acceptor.i: src/Acceptor.cc.i
+.PHONY : src/Acceptor.i
 
 # target to preprocess a source file
-AsyncLogging.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/AsyncLogging.cc.i
-.PHONY : AsyncLogging.cc.i
+src/Acceptor.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Acceptor.cc.i
+.PHONY : src/Acceptor.cc.i
 
-AsyncLogging.s: AsyncLogging.cc.s
-.PHONY : AsyncLogging.s
+src/Acceptor.s: src/Acceptor.cc.s
+.PHONY : src/Acceptor.s
 
 # target to generate assembly for a file
-AsyncLogging.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/AsyncLogging.cc.s
-.PHONY : AsyncLogging.cc.s
+src/Acceptor.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Acceptor.cc.s
+.PHONY : src/Acceptor.cc.s
 
-Buffer.o: Buffer.cc.o
-.PHONY : Buffer.o
+src/AsyncLogging.o: src/AsyncLogging.cc.o
+.PHONY : src/AsyncLogging.o
 
 # target to build an object file
-Buffer.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Buffer.cc.o
-.PHONY : Buffer.cc.o
+src/AsyncLogging.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/AsyncLogging.cc.o
+.PHONY : src/AsyncLogging.cc.o
 
-Buffer.i: Buffer.cc.i
-.PHONY : Buffer.i
+src/AsyncLogging.i: src/AsyncLogging.cc.i
+.PHONY : src/AsyncLogging.i
 
 # target to preprocess a source file
-Buffer.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Buffer.cc.i
-.PHONY : Buffer.cc.i
+src/AsyncLogging.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/AsyncLogging.cc.i
+.PHONY : src/AsyncLogging.cc.i
 
-Buffer.s: Buffer.cc.s
-.PHONY : Buffer.s
+src/AsyncLogging.s: src/AsyncLogging.cc.s
+.PHONY : src/AsyncLogging.s
 
 # target to generate assembly for a file
-Buffer.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Buffer.cc.s
-.PHONY : Buffer.cc.s
+src/AsyncLogging.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/AsyncLogging.cc.s
+.PHONY : src/AsyncLogging.cc.s
 
-Channel.o: Channel.cc.o
-.PHONY : Channel.o
+src/Buffer.o: src/Buffer.cc.o
+.PHONY : src/Buffer.o
 
 # target to build an object file
-Channel.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Channel.cc.o
-.PHONY : Channel.cc.o
+src/Buffer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Buffer.cc.o
+.PHONY : src/Buffer.cc.o
 
-Channel.i: Channel.cc.i
-.PHONY : Channel.i
+src/Buffer.i: src/Buffer.cc.i
+.PHONY : src/Buffer.i
 
 # target to preprocess a source file
-Channel.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Channel.cc.i
-.PHONY : Channel.cc.i
+src/Buffer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Buffer.cc.i
+.PHONY : src/Buffer.cc.i
 
-Channel.s: Channel.cc.s
-.PHONY : Channel.s
+src/Buffer.s: src/Buffer.cc.s
+.PHONY : src/Buffer.s
 
 # target to generate assembly for a file
-Channel.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Channel.cc.s
-.PHONY : Channel.cc.s
+src/Buffer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Buffer.cc.s
+.PHONY : src/Buffer.cc.s
 
-Echo.o: Echo.cc.o
-.PHONY : Echo.o
+src/Channel.o: src/Channel.cc.o
+.PHONY : src/Channel.o
 
 # target to build an object file
-Echo.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Echo.cc.o
-.PHONY : Echo.cc.o
+src/Channel.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Channel.cc.o
+.PHONY : src/Channel.cc.o
 
-Echo.i: Echo.cc.i
-.PHONY : Echo.i
+src/Channel.i: src/Channel.cc.i
+.PHONY : src/Channel.i
 
 # target to preprocess a source file
-Echo.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Echo.cc.i
-.PHONY : Echo.cc.i
+src/Channel.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Channel.cc.i
+.PHONY : src/Channel.cc.i
 
-Echo.s: Echo.cc.s
-.PHONY : Echo.s
+src/Channel.s: src/Channel.cc.s
+.PHONY : src/Channel.s
 
 # target to generate assembly for a file
-Echo.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Echo.cc.s
-.PHONY : Echo.cc.s
+src/Channel.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Channel.cc.s
+.PHONY : src/Channel.cc.s
 
-EpollPoller.o: EpollPoller.cc.o
-.PHONY : EpollPoller.o
+src/CircularBuffer.o: src/CircularBuffer.cc.o
+.PHONY : src/CircularBuffer.o
 
 # target to build an object file
-EpollPoller.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EpollPoller.cc.o
-.PHONY : EpollPoller.cc.o
+src/CircularBuffer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/CircularBuffer.cc.o
+.PHONY : src/CircularBuffer.cc.o
 
-EpollPoller.i: EpollPoller.cc.i
-.PHONY : EpollPoller.i
+src/CircularBuffer.i: src/CircularBuffer.cc.i
+.PHONY : src/CircularBuffer.i
 
 # target to preprocess a source file
-EpollPoller.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EpollPoller.cc.i
-.PHONY : EpollPoller.cc.i
+src/CircularBuffer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/CircularBuffer.cc.i
+.PHONY : src/CircularBuffer.cc.i
 
-EpollPoller.s: EpollPoller.cc.s
-.PHONY : EpollPoller.s
+src/CircularBuffer.s: src/CircularBuffer.cc.s
+.PHONY : src/CircularBuffer.s
 
 # target to generate assembly for a file
-EpollPoller.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EpollPoller.cc.s
-.PHONY : EpollPoller.cc.s
+src/CircularBuffer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/CircularBuffer.cc.s
+.PHONY : src/CircularBuffer.cc.s
 
-EventLoop.o: EventLoop.cc.o
-.PHONY : EventLoop.o
+src/Echo.o: src/Echo.cc.o
+.PHONY : src/Echo.o
 
 # target to build an object file
-EventLoop.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EventLoop.cc.o
-.PHONY : EventLoop.cc.o
+src/Echo.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Echo.cc.o
+.PHONY : src/Echo.cc.o
 
-EventLoop.i: EventLoop.cc.i
-.PHONY : EventLoop.i
+src/Echo.i: src/Echo.cc.i
+.PHONY : src/Echo.i
 
 # target to preprocess a source file
-EventLoop.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EventLoop.cc.i
-.PHONY : EventLoop.cc.i
+src/Echo.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Echo.cc.i
+.PHONY : src/Echo.cc.i
 
-EventLoop.s: EventLoop.cc.s
-.PHONY : EventLoop.s
+src/Echo.s: src/Echo.cc.s
+.PHONY : src/Echo.s
 
 # target to generate assembly for a file
-EventLoop.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EventLoop.cc.s
-.PHONY : EventLoop.cc.s
+src/Echo.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Echo.cc.s
+.PHONY : src/Echo.cc.s
 
-EventLoopThreadPool.o: EventLoopThreadPool.cc.o
-.PHONY : EventLoopThreadPool.o
+src/EpollPoller.o: src/EpollPoller.cc.o
+.PHONY : src/EpollPoller.o
 
 # target to build an object file
-EventLoopThreadPool.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EventLoopThreadPool.cc.o
-.PHONY : EventLoopThreadPool.cc.o
+src/EpollPoller.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EpollPoller.cc.o
+.PHONY : src/EpollPoller.cc.o
 
-EventLoopThreadPool.i: EventLoopThreadPool.cc.i
-.PHONY : EventLoopThreadPool.i
+src/EpollPoller.i: src/EpollPoller.cc.i
+.PHONY : src/EpollPoller.i
 
 # target to preprocess a source file
-EventLoopThreadPool.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EventLoopThreadPool.cc.i
-.PHONY : EventLoopThreadPool.cc.i
+src/EpollPoller.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EpollPoller.cc.i
+.PHONY : src/EpollPoller.cc.i
 
-EventLoopThreadPool.s: EventLoopThreadPool.cc.s
-.PHONY : EventLoopThreadPool.s
+src/EpollPoller.s: src/EpollPoller.cc.s
+.PHONY : src/EpollPoller.s
 
 # target to generate assembly for a file
-EventLoopThreadPool.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/EventLoopThreadPool.cc.s
-.PHONY : EventLoopThreadPool.cc.s
+src/EpollPoller.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EpollPoller.cc.s
+.PHONY : src/EpollPoller.cc.s
 
-HttpRequest.o: HttpRequest.cc.o
-.PHONY : HttpRequest.o
+src/EventLoop.o: src/EventLoop.cc.o
+.PHONY : src/EventLoop.o
 
 # target to build an object file
-HttpRequest.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpRequest.cc.o
-.PHONY : HttpRequest.cc.o
+src/EventLoop.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EventLoop.cc.o
+.PHONY : src/EventLoop.cc.o
 
-HttpRequest.i: HttpRequest.cc.i
-.PHONY : HttpRequest.i
+src/EventLoop.i: src/EventLoop.cc.i
+.PHONY : src/EventLoop.i
 
 # target to preprocess a source file
-HttpRequest.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpRequest.cc.i
-.PHONY : HttpRequest.cc.i
+src/EventLoop.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EventLoop.cc.i
+.PHONY : src/EventLoop.cc.i
 
-HttpRequest.s: HttpRequest.cc.s
-.PHONY : HttpRequest.s
+src/EventLoop.s: src/EventLoop.cc.s
+.PHONY : src/EventLoop.s
 
 # target to generate assembly for a file
-HttpRequest.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpRequest.cc.s
-.PHONY : HttpRequest.cc.s
+src/EventLoop.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EventLoop.cc.s
+.PHONY : src/EventLoop.cc.s
 
-HttpResponse.o: HttpResponse.cc.o
-.PHONY : HttpResponse.o
+src/EventLoopThreadPool.o: src/EventLoopThreadPool.cc.o
+.PHONY : src/EventLoopThreadPool.o
 
 # target to build an object file
-HttpResponse.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpResponse.cc.o
-.PHONY : HttpResponse.cc.o
+src/EventLoopThreadPool.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EventLoopThreadPool.cc.o
+.PHONY : src/EventLoopThreadPool.cc.o
 
-HttpResponse.i: HttpResponse.cc.i
-.PHONY : HttpResponse.i
+src/EventLoopThreadPool.i: src/EventLoopThreadPool.cc.i
+.PHONY : src/EventLoopThreadPool.i
 
 # target to preprocess a source file
-HttpResponse.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpResponse.cc.i
-.PHONY : HttpResponse.cc.i
+src/EventLoopThreadPool.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EventLoopThreadPool.cc.i
+.PHONY : src/EventLoopThreadPool.cc.i
 
-HttpResponse.s: HttpResponse.cc.s
-.PHONY : HttpResponse.s
+src/EventLoopThreadPool.s: src/EventLoopThreadPool.cc.s
+.PHONY : src/EventLoopThreadPool.s
 
 # target to generate assembly for a file
-HttpResponse.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpResponse.cc.s
-.PHONY : HttpResponse.cc.s
+src/EventLoopThreadPool.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/EventLoopThreadPool.cc.s
+.PHONY : src/EventLoopThreadPool.cc.s
 
-HttpServer.o: HttpServer.cc.o
-.PHONY : HttpServer.o
+src/HttpRequest.o: src/HttpRequest.cc.o
+.PHONY : src/HttpRequest.o
 
 # target to build an object file
-HttpServer.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpServer.cc.o
-.PHONY : HttpServer.cc.o
+src/HttpRequest.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpRequest.cc.o
+.PHONY : src/HttpRequest.cc.o
 
-HttpServer.i: HttpServer.cc.i
-.PHONY : HttpServer.i
+src/HttpRequest.i: src/HttpRequest.cc.i
+.PHONY : src/HttpRequest.i
 
 # target to preprocess a source file
-HttpServer.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpServer.cc.i
-.PHONY : HttpServer.cc.i
+src/HttpRequest.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpRequest.cc.i
+.PHONY : src/HttpRequest.cc.i
 
-HttpServer.s: HttpServer.cc.s
-.PHONY : HttpServer.s
+src/HttpRequest.s: src/HttpRequest.cc.s
+.PHONY : src/HttpRequest.s
 
 # target to generate assembly for a file
-HttpServer.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/HttpServer.cc.s
-.PHONY : HttpServer.cc.s
+src/HttpRequest.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpRequest.cc.s
+.PHONY : src/HttpRequest.cc.s
 
-LogFile.o: LogFile.cc.o
-.PHONY : LogFile.o
+src/HttpResponse.o: src/HttpResponse.cc.o
+.PHONY : src/HttpResponse.o
 
 # target to build an object file
-LogFile.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/LogFile.cc.o
-.PHONY : LogFile.cc.o
+src/HttpResponse.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpResponse.cc.o
+.PHONY : src/HttpResponse.cc.o
 
-LogFile.i: LogFile.cc.i
-.PHONY : LogFile.i
+src/HttpResponse.i: src/HttpResponse.cc.i
+.PHONY : src/HttpResponse.i
 
 # target to preprocess a source file
-LogFile.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/LogFile.cc.i
-.PHONY : LogFile.cc.i
+src/HttpResponse.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpResponse.cc.i
+.PHONY : src/HttpResponse.cc.i
 
-LogFile.s: LogFile.cc.s
-.PHONY : LogFile.s
+src/HttpResponse.s: src/HttpResponse.cc.s
+.PHONY : src/HttpResponse.s
 
 # target to generate assembly for a file
-LogFile.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/LogFile.cc.s
-.PHONY : LogFile.cc.s
+src/HttpResponse.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpResponse.cc.s
+.PHONY : src/HttpResponse.cc.s
 
-LogStream.o: LogStream.cc.o
-.PHONY : LogStream.o
+src/HttpServer.o: src/HttpServer.cc.o
+.PHONY : src/HttpServer.o
 
 # target to build an object file
-LogStream.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/LogStream.cc.o
-.PHONY : LogStream.cc.o
+src/HttpServer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpServer.cc.o
+.PHONY : src/HttpServer.cc.o
 
-LogStream.i: LogStream.cc.i
-.PHONY : LogStream.i
+src/HttpServer.i: src/HttpServer.cc.i
+.PHONY : src/HttpServer.i
 
 # target to preprocess a source file
-LogStream.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/LogStream.cc.i
-.PHONY : LogStream.cc.i
+src/HttpServer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpServer.cc.i
+.PHONY : src/HttpServer.cc.i
 
-LogStream.s: LogStream.cc.s
-.PHONY : LogStream.s
+src/HttpServer.s: src/HttpServer.cc.s
+.PHONY : src/HttpServer.s
 
 # target to generate assembly for a file
-LogStream.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/LogStream.cc.s
-.PHONY : LogStream.cc.s
+src/HttpServer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/HttpServer.cc.s
+.PHONY : src/HttpServer.cc.s
 
-Logger.o: Logger.cc.o
-.PHONY : Logger.o
+src/LogFile.o: src/LogFile.cc.o
+.PHONY : src/LogFile.o
 
 # target to build an object file
-Logger.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Logger.cc.o
-.PHONY : Logger.cc.o
+src/LogFile.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/LogFile.cc.o
+.PHONY : src/LogFile.cc.o
 
-Logger.i: Logger.cc.i
-.PHONY : Logger.i
+src/LogFile.i: src/LogFile.cc.i
+.PHONY : src/LogFile.i
 
 # target to preprocess a source file
-Logger.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Logger.cc.i
-.PHONY : Logger.cc.i
+src/LogFile.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/LogFile.cc.i
+.PHONY : src/LogFile.cc.i
 
-Logger.s: Logger.cc.s
-.PHONY : Logger.s
+src/LogFile.s: src/LogFile.cc.s
+.PHONY : src/LogFile.s
 
 # target to generate assembly for a file
-Logger.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Logger.cc.s
-.PHONY : Logger.cc.s
+src/LogFile.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/LogFile.cc.s
+.PHONY : src/LogFile.cc.s
 
-Poller.o: Poller.cc.o
-.PHONY : Poller.o
+src/LogStream.o: src/LogStream.cc.o
+.PHONY : src/LogStream.o
 
 # target to build an object file
-Poller.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Poller.cc.o
-.PHONY : Poller.cc.o
+src/LogStream.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/LogStream.cc.o
+.PHONY : src/LogStream.cc.o
 
-Poller.i: Poller.cc.i
-.PHONY : Poller.i
+src/LogStream.i: src/LogStream.cc.i
+.PHONY : src/LogStream.i
 
 # target to preprocess a source file
-Poller.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Poller.cc.i
-.PHONY : Poller.cc.i
+src/LogStream.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/LogStream.cc.i
+.PHONY : src/LogStream.cc.i
 
-Poller.s: Poller.cc.s
-.PHONY : Poller.s
+src/LogStream.s: src/LogStream.cc.s
+.PHONY : src/LogStream.s
 
 # target to generate assembly for a file
-Poller.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Poller.cc.s
-.PHONY : Poller.cc.s
+src/LogStream.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/LogStream.cc.s
+.PHONY : src/LogStream.cc.s
 
-Socket.o: Socket.cc.o
-.PHONY : Socket.o
+src/Logger.o: src/Logger.cc.o
+.PHONY : src/Logger.o
 
 # target to build an object file
-Socket.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Socket.cc.o
-.PHONY : Socket.cc.o
+src/Logger.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Logger.cc.o
+.PHONY : src/Logger.cc.o
 
-Socket.i: Socket.cc.i
-.PHONY : Socket.i
+src/Logger.i: src/Logger.cc.i
+.PHONY : src/Logger.i
 
 # target to preprocess a source file
-Socket.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Socket.cc.i
-.PHONY : Socket.cc.i
+src/Logger.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Logger.cc.i
+.PHONY : src/Logger.cc.i
 
-Socket.s: Socket.cc.s
-.PHONY : Socket.s
+src/Logger.s: src/Logger.cc.s
+.PHONY : src/Logger.s
 
 # target to generate assembly for a file
-Socket.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Socket.cc.s
-.PHONY : Socket.cc.s
+src/Logger.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Logger.cc.s
+.PHONY : src/Logger.cc.s
 
-TcpConnection.o: TcpConnection.cc.o
-.PHONY : TcpConnection.o
+src/Poller.o: src/Poller.cc.o
+.PHONY : src/Poller.o
 
 # target to build an object file
-TcpConnection.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TcpConnection.cc.o
-.PHONY : TcpConnection.cc.o
+src/Poller.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Poller.cc.o
+.PHONY : src/Poller.cc.o
 
-TcpConnection.i: TcpConnection.cc.i
-.PHONY : TcpConnection.i
+src/Poller.i: src/Poller.cc.i
+.PHONY : src/Poller.i
 
 # target to preprocess a source file
-TcpConnection.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TcpConnection.cc.i
-.PHONY : TcpConnection.cc.i
+src/Poller.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Poller.cc.i
+.PHONY : src/Poller.cc.i
 
-TcpConnection.s: TcpConnection.cc.s
-.PHONY : TcpConnection.s
+src/Poller.s: src/Poller.cc.s
+.PHONY : src/Poller.s
 
 # target to generate assembly for a file
-TcpConnection.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TcpConnection.cc.s
-.PHONY : TcpConnection.cc.s
+src/Poller.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Poller.cc.s
+.PHONY : src/Poller.cc.s
 
-TcpServer.o: TcpServer.cc.o
-.PHONY : TcpServer.o
+src/Socket.o: src/Socket.cc.o
+.PHONY : src/Socket.o
 
 # target to build an object file
-TcpServer.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TcpServer.cc.o
-.PHONY : TcpServer.cc.o
+src/Socket.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Socket.cc.o
+.PHONY : src/Socket.cc.o
 
-TcpServer.i: TcpServer.cc.i
-.PHONY : TcpServer.i
+src/Socket.i: src/Socket.cc.i
+.PHONY : src/Socket.i
 
 # target to preprocess a source file
-TcpServer.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TcpServer.cc.i
-.PHONY : TcpServer.cc.i
+src/Socket.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Socket.cc.i
+.PHONY : src/Socket.cc.i
 
-TcpServer.s: TcpServer.cc.s
-.PHONY : TcpServer.s
+src/Socket.s: src/Socket.cc.s
+.PHONY : src/Socket.s
 
 # target to generate assembly for a file
-TcpServer.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TcpServer.cc.s
-.PHONY : TcpServer.cc.s
+src/Socket.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Socket.cc.s
+.PHONY : src/Socket.cc.s
 
-Timer.o: Timer.cc.o
-.PHONY : Timer.o
+src/TcpConnection.o: src/TcpConnection.cc.o
+.PHONY : src/TcpConnection.o
 
 # target to build an object file
-Timer.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Timer.cc.o
-.PHONY : Timer.cc.o
+src/TcpConnection.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TcpConnection.cc.o
+.PHONY : src/TcpConnection.cc.o
 
-Timer.i: Timer.cc.i
-.PHONY : Timer.i
+src/TcpConnection.i: src/TcpConnection.cc.i
+.PHONY : src/TcpConnection.i
 
 # target to preprocess a source file
-Timer.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Timer.cc.i
-.PHONY : Timer.cc.i
+src/TcpConnection.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TcpConnection.cc.i
+.PHONY : src/TcpConnection.cc.i
 
-Timer.s: Timer.cc.s
-.PHONY : Timer.s
+src/TcpConnection.s: src/TcpConnection.cc.s
+.PHONY : src/TcpConnection.s
 
 # target to generate assembly for a file
-Timer.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Timer.cc.s
-.PHONY : Timer.cc.s
+src/TcpConnection.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TcpConnection.cc.s
+.PHONY : src/TcpConnection.cc.s
 
-TimerSchedule.o: TimerSchedule.cc.o
-.PHONY : TimerSchedule.o
+src/TcpServer.o: src/TcpServer.cc.o
+.PHONY : src/TcpServer.o
 
 # target to build an object file
-TimerSchedule.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TimerSchedule.cc.o
-.PHONY : TimerSchedule.cc.o
+src/TcpServer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TcpServer.cc.o
+.PHONY : src/TcpServer.cc.o
 
-TimerSchedule.i: TimerSchedule.cc.i
-.PHONY : TimerSchedule.i
+src/TcpServer.i: src/TcpServer.cc.i
+.PHONY : src/TcpServer.i
 
 # target to preprocess a source file
-TimerSchedule.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TimerSchedule.cc.i
-.PHONY : TimerSchedule.cc.i
+src/TcpServer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TcpServer.cc.i
+.PHONY : src/TcpServer.cc.i
 
-TimerSchedule.s: TimerSchedule.cc.s
-.PHONY : TimerSchedule.s
+src/TcpServer.s: src/TcpServer.cc.s
+.PHONY : src/TcpServer.s
 
 # target to generate assembly for a file
-TimerSchedule.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/TimerSchedule.cc.s
-.PHONY : TimerSchedule.cc.s
+src/TcpServer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TcpServer.cc.s
+.PHONY : src/TcpServer.cc.s
 
-Timestamp.o: Timestamp.cc.o
-.PHONY : Timestamp.o
+src/Timer.o: src/Timer.cc.o
+.PHONY : src/Timer.o
 
 # target to build an object file
-Timestamp.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Timestamp.cc.o
-.PHONY : Timestamp.cc.o
+src/Timer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Timer.cc.o
+.PHONY : src/Timer.cc.o
 
-Timestamp.i: Timestamp.cc.i
-.PHONY : Timestamp.i
+src/Timer.i: src/Timer.cc.i
+.PHONY : src/Timer.i
 
 # target to preprocess a source file
-Timestamp.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Timestamp.cc.i
-.PHONY : Timestamp.cc.i
+src/Timer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Timer.cc.i
+.PHONY : src/Timer.cc.i
 
-Timestamp.s: Timestamp.cc.s
-.PHONY : Timestamp.s
+src/Timer.s: src/Timer.cc.s
+.PHONY : src/Timer.s
 
 # target to generate assembly for a file
-Timestamp.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/Timestamp.cc.s
-.PHONY : Timestamp.cc.s
+src/Timer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Timer.cc.s
+.PHONY : src/Timer.cc.s
 
-main.o: main.cc.o
-.PHONY : main.o
+src/TimerSchedule.o: src/TimerSchedule.cc.o
+.PHONY : src/TimerSchedule.o
 
 # target to build an object file
-main.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/main.cc.o
-.PHONY : main.cc.o
+src/TimerSchedule.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TimerSchedule.cc.o
+.PHONY : src/TimerSchedule.cc.o
 
-main.i: main.cc.i
-.PHONY : main.i
+src/TimerSchedule.i: src/TimerSchedule.cc.i
+.PHONY : src/TimerSchedule.i
 
 # target to preprocess a source file
-main.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/main.cc.i
-.PHONY : main.cc.i
+src/TimerSchedule.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TimerSchedule.cc.i
+.PHONY : src/TimerSchedule.cc.i
 
-main.s: main.cc.s
-.PHONY : main.s
+src/TimerSchedule.s: src/TimerSchedule.cc.s
+.PHONY : src/TimerSchedule.s
 
 # target to generate assembly for a file
-main.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/webserver_cmake.dir/build.make CMakeFiles/webserver_cmake.dir/main.cc.s
-.PHONY : main.cc.s
+src/TimerSchedule.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/TimerSchedule.cc.s
+.PHONY : src/TimerSchedule.cc.s
+
+src/Timestamp.o: src/Timestamp.cc.o
+.PHONY : src/Timestamp.o
+
+# target to build an object file
+src/Timestamp.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Timestamp.cc.o
+.PHONY : src/Timestamp.cc.o
+
+src/Timestamp.i: src/Timestamp.cc.i
+.PHONY : src/Timestamp.i
+
+# target to preprocess a source file
+src/Timestamp.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Timestamp.cc.i
+.PHONY : src/Timestamp.cc.i
+
+src/Timestamp.s: src/Timestamp.cc.s
+.PHONY : src/Timestamp.s
+
+# target to generate assembly for a file
+src/Timestamp.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Timestamp.cc.s
+.PHONY : src/Timestamp.cc.s
+
+src/main.o: src/main.cc.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/main.cc.o
+.PHONY : src/main.cc.o
+
+src/main.i: src/main.cc.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/main.cc.i
+.PHONY : src/main.cc.i
+
+src/main.s: src/main.cc.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/main.cc.s
+.PHONY : src/main.cc.s
 
 # Help Target
 help:
@@ -665,73 +712,78 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... webserver_cmake"
-	@echo "... Acceptor.o"
-	@echo "... Acceptor.i"
-	@echo "... Acceptor.s"
-	@echo "... AsyncLogging.o"
-	@echo "... AsyncLogging.i"
-	@echo "... AsyncLogging.s"
-	@echo "... Buffer.o"
-	@echo "... Buffer.i"
-	@echo "... Buffer.s"
-	@echo "... Channel.o"
-	@echo "... Channel.i"
-	@echo "... Channel.s"
-	@echo "... Echo.o"
-	@echo "... Echo.i"
-	@echo "... Echo.s"
-	@echo "... EpollPoller.o"
-	@echo "... EpollPoller.i"
-	@echo "... EpollPoller.s"
-	@echo "... EventLoop.o"
-	@echo "... EventLoop.i"
-	@echo "... EventLoop.s"
-	@echo "... EventLoopThreadPool.o"
-	@echo "... EventLoopThreadPool.i"
-	@echo "... EventLoopThreadPool.s"
-	@echo "... HttpRequest.o"
-	@echo "... HttpRequest.i"
-	@echo "... HttpRequest.s"
-	@echo "... HttpResponse.o"
-	@echo "... HttpResponse.i"
-	@echo "... HttpResponse.s"
-	@echo "... HttpServer.o"
-	@echo "... HttpServer.i"
-	@echo "... HttpServer.s"
-	@echo "... LogFile.o"
-	@echo "... LogFile.i"
-	@echo "... LogFile.s"
-	@echo "... LogStream.o"
-	@echo "... LogStream.i"
-	@echo "... LogStream.s"
-	@echo "... Logger.o"
-	@echo "... Logger.i"
-	@echo "... Logger.s"
-	@echo "... Poller.o"
-	@echo "... Poller.i"
-	@echo "... Poller.s"
-	@echo "... Socket.o"
-	@echo "... Socket.i"
-	@echo "... Socket.s"
-	@echo "... TcpConnection.o"
-	@echo "... TcpConnection.i"
-	@echo "... TcpConnection.s"
-	@echo "... TcpServer.o"
-	@echo "... TcpServer.i"
-	@echo "... TcpServer.s"
-	@echo "... Timer.o"
-	@echo "... Timer.i"
-	@echo "... Timer.s"
-	@echo "... TimerSchedule.o"
-	@echo "... TimerSchedule.i"
-	@echo "... TimerSchedule.s"
-	@echo "... Timestamp.o"
-	@echo "... Timestamp.i"
-	@echo "... Timestamp.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... test"
+	@echo "... TestBuffer"
+	@echo "... demo"
+	@echo "... src/Acceptor.o"
+	@echo "... src/Acceptor.i"
+	@echo "... src/Acceptor.s"
+	@echo "... src/AsyncLogging.o"
+	@echo "... src/AsyncLogging.i"
+	@echo "... src/AsyncLogging.s"
+	@echo "... src/Buffer.o"
+	@echo "... src/Buffer.i"
+	@echo "... src/Buffer.s"
+	@echo "... src/Channel.o"
+	@echo "... src/Channel.i"
+	@echo "... src/Channel.s"
+	@echo "... src/CircularBuffer.o"
+	@echo "... src/CircularBuffer.i"
+	@echo "... src/CircularBuffer.s"
+	@echo "... src/Echo.o"
+	@echo "... src/Echo.i"
+	@echo "... src/Echo.s"
+	@echo "... src/EpollPoller.o"
+	@echo "... src/EpollPoller.i"
+	@echo "... src/EpollPoller.s"
+	@echo "... src/EventLoop.o"
+	@echo "... src/EventLoop.i"
+	@echo "... src/EventLoop.s"
+	@echo "... src/EventLoopThreadPool.o"
+	@echo "... src/EventLoopThreadPool.i"
+	@echo "... src/EventLoopThreadPool.s"
+	@echo "... src/HttpRequest.o"
+	@echo "... src/HttpRequest.i"
+	@echo "... src/HttpRequest.s"
+	@echo "... src/HttpResponse.o"
+	@echo "... src/HttpResponse.i"
+	@echo "... src/HttpResponse.s"
+	@echo "... src/HttpServer.o"
+	@echo "... src/HttpServer.i"
+	@echo "... src/HttpServer.s"
+	@echo "... src/LogFile.o"
+	@echo "... src/LogFile.i"
+	@echo "... src/LogFile.s"
+	@echo "... src/LogStream.o"
+	@echo "... src/LogStream.i"
+	@echo "... src/LogStream.s"
+	@echo "... src/Logger.o"
+	@echo "... src/Logger.i"
+	@echo "... src/Logger.s"
+	@echo "... src/Poller.o"
+	@echo "... src/Poller.i"
+	@echo "... src/Poller.s"
+	@echo "... src/Socket.o"
+	@echo "... src/Socket.i"
+	@echo "... src/Socket.s"
+	@echo "... src/TcpConnection.o"
+	@echo "... src/TcpConnection.i"
+	@echo "... src/TcpConnection.s"
+	@echo "... src/TcpServer.o"
+	@echo "... src/TcpServer.i"
+	@echo "... src/TcpServer.s"
+	@echo "... src/Timer.o"
+	@echo "... src/Timer.i"
+	@echo "... src/Timer.s"
+	@echo "... src/TimerSchedule.o"
+	@echo "... src/TimerSchedule.i"
+	@echo "... src/TimerSchedule.s"
+	@echo "... src/Timestamp.o"
+	@echo "... src/Timestamp.i"
+	@echo "... src/Timestamp.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
