@@ -9,7 +9,7 @@
 
 AsyncLogging::AsyncLogging()
     : kFlushInterval_(3),
-      basename_("./log"),
+      basename_("log/log"),
       running_flag_(false),
       current_buffer_(new FixedBuffer<kLargeBuffer>)
 {

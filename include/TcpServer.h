@@ -49,7 +49,7 @@ private:
     std::function<void(std::shared_ptr<EventLoop>)> thread_init_cb_;
     std::atomic<int> started_;
     int next_connection_;
-    std::map<std::string, std::weak_ptr<TcpConnection>> connection_map_;
+    std::map<std::string, std::shared_ptr<TcpConnection>> connection_map_;
 };
 
 #endif

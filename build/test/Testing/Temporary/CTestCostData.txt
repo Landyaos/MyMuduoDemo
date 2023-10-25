@@ -1,3 +1,0 @@
-TestBuffer 0 0
----
-TestBuffer

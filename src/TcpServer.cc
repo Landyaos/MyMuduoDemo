@@ -20,20 +20,12 @@ TcpServer::TcpServer(std::shared_ptr<EventLoop> event_loop_ptr, const std::strin
 
 TcpServer::~TcpServer()
 {
-    for (auto &item : connection_map_)
+    for (auto& item : connection_map_)
     {
-        std::shared_ptr<TcpConnection> conn = item.second.lock();
-        if (conn)
-        {
-            conn->get_event_loop_ptr_()->RunInLoop(std::bind(&TcpConnection::ConnectionDestroyed, conn));
-        }
-
-        /**
-         * @brief TODO
-         *  waiting for that all the conn is disconnected.
-         *
-         */
-    }
+        std::shared_ptr<TcpConnection> conn(item.second);
+        item.second.reset();
+                    conn->get_event_loop_ptr_()->RunInLoop(std::bind(&TcpConnection::ConnectionDestroyed, conn));
+            }
 }
 
 void TcpServer::SetThreadNum(int thread_num)
@@ -55,12 +47,11 @@ void TcpServer::HandleConnection(int sockfd, const sockaddr_in client_addr)
     std::string name = inet_ntoa(client_addr.sin_addr) + std::to_string(client_addr.sin_port);
     std::cout << "new connnection : " << name << " bind epollfd" << io_loop->epollfd() << std::endl;
     std::shared_ptr<TcpConnection> conn(new TcpConnection(io_loop, name, sockfd, server_addr_, client_addr));
-    connection_map_[name] = std::weak_ptr<TcpConnection>(conn);
+    connection_map_[name] = conn;
     conn->set_connection_cb(connection_cb_);
     conn->set_message_cb(message_cb_);
     conn->set_write_complete_cb(write_complete_cb_);
     conn->set_close_cb(std::bind(&TcpServer::RemoveConnection, this, std::placeholders::_1));
-
     io_loop->RunInLoop(std::bind(&TcpConnection::ConnectionEstablished, conn));
 }
 

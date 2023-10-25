@@ -90,12 +90,12 @@ void TcpConnection::ConnectionEstablished()
     std::cout << "connection established success !\n";
     // std::weak_ptr<TcpConnection> temp = shared_from_this();
     // event_loop_ptr_->RunAt(Timestamp(2000), std::bind(&TcpConnection::HandleTimeout, this, temp));
-    // connection_cb_(shared_from_this());
+    connection_cb_(shared_from_this());
 }
 
 void TcpConnection::ConnectionDestroyed()
 {
-    HandleClose();
+    // HandleClose();
 }
 
 void TcpConnection::HandleRead()

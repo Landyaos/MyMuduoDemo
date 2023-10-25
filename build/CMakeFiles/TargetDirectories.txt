@@ -1,8 +1,0 @@
-/root/demo/build/CMakeFiles/demo.dir
-/root/demo/build/CMakeFiles/test.dir
-/root/demo/build/CMakeFiles/edit_cache.dir
-/root/demo/build/CMakeFiles/rebuild_cache.dir
-/root/demo/build/test/CMakeFiles/TestBuffer.dir
-/root/demo/build/test/CMakeFiles/test.dir
-/root/demo/build/test/CMakeFiles/edit_cache.dir
-/root/demo/build/test/CMakeFiles/rebuild_cache.dir

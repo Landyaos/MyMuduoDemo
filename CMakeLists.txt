@@ -35,4 +35,4 @@ enable_testing()
 add_subdirectory(test)
 
 # 可执行文件
-add_executable(${PROJECT_NAME} ${SRCS})
+add_executable(${PROJECT_NAME} main.cc ${SRCS})
